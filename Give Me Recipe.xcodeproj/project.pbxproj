@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E322E0BE28280AAE0005372C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322E0BD28280AAE0005372C /* Constraints.swift */; };
 		E32D4E962826BF1C00E4F6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4E952826BF1C00E4F6F3 /* AppDelegate.swift */; };
 		E32D4E982826BF1C00E4F6F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4E972826BF1C00E4F6F3 /* SceneDelegate.swift */; };
-		E32D4E9A2826BF1C00E4F6F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4E992826BF1C00E4F6F3 /* ViewController.swift */; };
 		E32D4E9D2826BF1C00E4F6F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32D4E9B2826BF1C00E4F6F3 /* Main.storyboard */; };
 		E32D4E9F2826BF1D00E4F6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E32D4E9E2826BF1D00E4F6F3 /* Assets.xcassets */; };
 		E32D4EA22826BF1D00E4F6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32D4EA02826BF1D00E4F6F3 /* LaunchScreen.storyboard */; };
 		E32D4EAD2826BF1D00E4F6F3 /* Give_Me_RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4EAC2826BF1D00E4F6F3 /* Give_Me_RecipeTests.swift */; };
 		E32D4EB72826BF1D00E4F6F3 /* Give_Me_RecipeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4EB62826BF1D00E4F6F3 /* Give_Me_RecipeUITests.swift */; };
 		E32D4EB92826BF1D00E4F6F3 /* Give_Me_RecipeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4EB82826BF1D00E4F6F3 /* Give_Me_RecipeUITestsLaunchTests.swift */; };
+		E340EB902829B1C3005982BE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340EB8F2829B1C3005982BE /* NavigationViewController.swift */; };
+		E340EB912829B1C3005982BE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340EB8F2829B1C3005982BE /* NavigationViewController.swift */; };
+		E340EB922829B1C3005982BE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340EB8F2829B1C3005982BE /* NavigationViewController.swift */; };
+		E36FC13128282CEF002B0416 /* RecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12A28282CEF002B0416 /* RecipePresenter.swift */; };
+		E36FC13228282CEF002B0416 /* RecipeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12B28282CEF002B0416 /* RecipeWorker.swift */; };
+		E36FC13328282CEF002B0416 /* RecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12C28282CEF002B0416 /* RecipeRouter.swift */; };
+		E36FC13428282CEF002B0416 /* RecipeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12D28282CEF002B0416 /* RecipeModels.swift */; };
+		E36FC13528282CEF002B0416 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12E28282CEF002B0416 /* RecipeViewController.swift */; };
+		E36FC13628282CEF002B0416 /* RecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */; };
+		E36FC13728282CEF002B0416 /* RecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E36FC13028282CEF002B0416 /* RecipeViewController.xib */; };
+		E3A7AED02826CB8600387185 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AEC92826CB8600387185 /* MainScreenPresenter.swift */; };
+		E3A7AED12826CB8600387185 /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECA2826CB8600387185 /* MainScreenWorker.swift */; };
+		E3A7AED22826CB8600387185 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECB2826CB8600387185 /* MainScreenRouter.swift */; };
+		E3A7AED32826CB8600387185 /* MainScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECC2826CB8600387185 /* MainScreenModels.swift */; };
+		E3A7AED42826CB8600387185 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */; };
+		E3A7AED52826CB8600387185 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */; };
+		E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E322E0BD28280AAE0005372C /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		E32D4E922826BF1C00E4F6F3 /* Give Me Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Give Me Recipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32D4E952826BF1C00E4F6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E32D4E972826BF1C00E4F6F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E32D4E992826BF1C00E4F6F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E32D4E9C2826BF1C00E4F6F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E32D4E9E2826BF1D00E4F6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E32D4EA12826BF1D00E4F6F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +66,21 @@
 		E32D4EB22826BF1D00E4F6F3 /* Give Me RecipeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Give Me RecipeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32D4EB62826BF1D00E4F6F3 /* Give_Me_RecipeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Give_Me_RecipeUITests.swift; sourceTree = "<group>"; };
 		E32D4EB82826BF1D00E4F6F3 /* Give_Me_RecipeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Give_Me_RecipeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E340EB8F2829B1C3005982BE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		E36FC12A28282CEF002B0416 /* RecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePresenter.swift; sourceTree = "<group>"; };
+		E36FC12B28282CEF002B0416 /* RecipeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeWorker.swift; sourceTree = "<group>"; };
+		E36FC12C28282CEF002B0416 /* RecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRouter.swift; sourceTree = "<group>"; };
+		E36FC12D28282CEF002B0416 /* RecipeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModels.swift; sourceTree = "<group>"; };
+		E36FC12E28282CEF002B0416 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInteractor.swift; sourceTree = "<group>"; };
+		E36FC13028282CEF002B0416 /* RecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewController.xib; sourceTree = "<group>"; };
+		E3A7AEC92826CB8600387185 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		E3A7AECA2826CB8600387185 /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
+		E3A7AECB2826CB8600387185 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
+		E3A7AECC2826CB8600387185 /* MainScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenModels.swift; sourceTree = "<group>"; };
+		E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E322E0BF28280ACC0005372C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E322E0BD28280AAE0005372C /* Constraints.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E32D4E892826BF1B00E4F6F3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +141,14 @@
 			children = (
 				E32D4E952826BF1C00E4F6F3 /* AppDelegate.swift */,
 				E32D4E972826BF1C00E4F6F3 /* SceneDelegate.swift */,
-				E32D4E992826BF1C00E4F6F3 /* ViewController.swift */,
+				E3A7AEC82826CB6300387185 /* Main Screen */,
+				E36FC12928282CB6002B0416 /* RecipeScreen */,
+				E322E0BF28280ACC0005372C /* Helpers */,
 				E32D4E9B2826BF1C00E4F6F3 /* Main.storyboard */,
 				E32D4E9E2826BF1D00E4F6F3 /* Assets.xcassets */,
 				E32D4EA02826BF1D00E4F6F3 /* LaunchScreen.storyboard */,
 				E32D4EA32826BF1D00E4F6F3 /* Info.plist */,
+				E340EB8F2829B1C3005982BE /* NavigationViewController.swift */,
 			);
 			path = "Give Me Recipe";
 			sourceTree = "<group>";
@@ -125,6 +168,34 @@
 				E32D4EB82826BF1D00E4F6F3 /* Give_Me_RecipeUITestsLaunchTests.swift */,
 			);
 			path = "Give Me RecipeUITests";
+			sourceTree = "<group>";
+		};
+		E36FC12928282CB6002B0416 /* RecipeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E36FC13028282CEF002B0416 /* RecipeViewController.xib */,
+				E36FC12E28282CEF002B0416 /* RecipeViewController.swift */,
+				E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */,
+				E36FC12B28282CEF002B0416 /* RecipeWorker.swift */,
+				E36FC12A28282CEF002B0416 /* RecipePresenter.swift */,
+				E36FC12C28282CEF002B0416 /* RecipeRouter.swift */,
+				E36FC12D28282CEF002B0416 /* RecipeModels.swift */,
+			);
+			path = RecipeScreen;
+			sourceTree = "<group>";
+		};
+		E3A7AEC82826CB6300387185 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */,
+				E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */,
+				E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */,
+				E3A7AECA2826CB8600387185 /* MainScreenWorker.swift */,
+				E3A7AEC92826CB8600387185 /* MainScreenPresenter.swift */,
+				E3A7AECB2826CB8600387185 /* MainScreenRouter.swift */,
+				E3A7AECC2826CB8600387185 /* MainScreenModels.swift */,
+			);
+			path = "Main Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E32D4EA22826BF1D00E4F6F3 /* LaunchScreen.storyboard in Resources */,
+				E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */,
+				E36FC13728282CEF002B0416 /* RecipeViewController.xib in Resources */,
 				E32D4E9F2826BF1D00E4F6F3 /* Assets.xcassets in Resources */,
 				E32D4E9D2826BF1C00E4F6F3 /* Main.storyboard in Resources */,
 			);
@@ -258,9 +331,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32D4E9A2826BF1C00E4F6F3 /* ViewController.swift in Sources */,
+				E36FC13428282CEF002B0416 /* RecipeModels.swift in Sources */,
+				E36FC13628282CEF002B0416 /* RecipeInteractor.swift in Sources */,
+				E3A7AED12826CB8600387185 /* MainScreenWorker.swift in Sources */,
+				E36FC13528282CEF002B0416 /* RecipeViewController.swift in Sources */,
+				E3A7AED32826CB8600387185 /* MainScreenModels.swift in Sources */,
+				E36FC13228282CEF002B0416 /* RecipeWorker.swift in Sources */,
+				E322E0BE28280AAE0005372C /* Constraints.swift in Sources */,
+				E3A7AED02826CB8600387185 /* MainScreenPresenter.swift in Sources */,
+				E340EB902829B1C3005982BE /* NavigationViewController.swift in Sources */,
+				E3A7AED22826CB8600387185 /* MainScreenRouter.swift in Sources */,
+				E36FC13328282CEF002B0416 /* RecipeRouter.swift in Sources */,
+				E3A7AED42826CB8600387185 /* MainScreenViewController.swift in Sources */,
 				E32D4E962826BF1C00E4F6F3 /* AppDelegate.swift in Sources */,
 				E32D4E982826BF1C00E4F6F3 /* SceneDelegate.swift in Sources */,
+				E36FC13128282CEF002B0416 /* RecipePresenter.swift in Sources */,
+				E3A7AED52826CB8600387185 /* MainScreenInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E340EB912829B1C3005982BE /* NavigationViewController.swift in Sources */,
 				E32D4EAD2826BF1D00E4F6F3 /* Give_Me_RecipeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E340EB922829B1C3005982BE /* NavigationViewController.swift in Sources */,
 				E32D4EB72826BF1D00E4F6F3 /* Give_Me_RecipeUITests.swift in Sources */,
 				E32D4EB92826BF1D00E4F6F3 /* Give_Me_RecipeUITestsLaunchTests.swift in Sources */,
 			);
