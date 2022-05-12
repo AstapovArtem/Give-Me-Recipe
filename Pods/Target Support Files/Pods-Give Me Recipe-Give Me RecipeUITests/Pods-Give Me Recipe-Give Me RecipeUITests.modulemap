@@ -1,0 +1,6 @@
+framework module Pods_Give_Me_Recipe_Give_Me_RecipeUITests {
+  umbrella header "Pods-Give Me Recipe-Give Me RecipeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
