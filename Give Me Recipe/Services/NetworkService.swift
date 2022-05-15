@@ -11,7 +11,7 @@ import Alamofire
 
 class NetworkService {
     
-    func fetchRecipe(from url:MealsURLResponse, completion: @escaping (SearchResponse?) -> Void) {
+    func fetchRecipe(from url:MealURLRequests, completion: @escaping (SearchResponse?) -> Void) {
         guard let urlRequest = URL(string: url.rawValue) else { return }
         
         let address: Alamofire.URLRequestConvertible = URLRequest(url: urlRequest)

@@ -25,10 +25,13 @@ class MainScreenInteractor: MainScreenBusinessLogic {
         
         switch request {
         case .getRandomRecipe:
-            networkService.fetchRecipe(from: MealsURLResponse.randomRecipe) { response in
-                print(response?.meals.first?.strMeal)
+            networkService.fetchRecipe(from: MealURLRequests.randomRecipe) { [weak self] response in
+                guard let response = response else {
+                    return
+                }
+
+                self!.presenter?.presentData(response: .presentRandomRecipe(response: response))
             }
-            presenter?.presentData(response: .presentRandomRecipe)
         }
     }
     

@@ -102,8 +102,8 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     
     func displayData(viewModel: MainScreen.Model.ViewModel.ViewModelData) {
         switch viewModel {
-        case .displayRandomRecipe:
-            router?.openRandomRecipe()
+        case .displayRandomRecipe(let viewModel):
+            router?.openRandomRecipe(from: viewModel)
         }
     }
     

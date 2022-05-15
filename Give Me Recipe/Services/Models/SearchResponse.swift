@@ -8,7 +8,7 @@
 import Foundation
 
 struct SearchResponse: Decodable {
-    var meals: [MealRecipe]
+    var meals: [MealRecipe?]
 }
 
 

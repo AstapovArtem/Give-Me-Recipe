@@ -18,12 +18,12 @@ enum MainScreen {
     }
     struct Response {
       enum ResponseType {
-        case presentRandomRecipe
+          case presentRandomRecipe(response: SearchResponse)
       }
     }
     struct ViewModel {
       enum ViewModelData {
-        case displayRandomRecipe
+          case displayRandomRecipe(viewModel: MealRecipeViewModel)
       }
     }
   }

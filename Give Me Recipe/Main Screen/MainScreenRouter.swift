@@ -11,7 +11,7 @@ import UIKit
 protocol MainScreenRoutingLogic {
     var navigationViewControllerDelegate: NavigationViewControllerDelegate? { set get }
     
-    func openRandomRecipe()
+    func openRandomRecipe(from viewModel: MealRecipeViewModel)
 }
 
 class MainScreenRouter: NSObject, MainScreenRoutingLogic {
@@ -23,9 +23,8 @@ class MainScreenRouter: NSObject, MainScreenRoutingLogic {
     
     // MARK: Routing
     
-    func openRandomRecipe() {
-        let recipeVC = RecipeViewController()
-        navigationViewControllerDelegate?.pushViewController(recipeVC, animated: true)
+    func openRandomRecipe(from viewModel: MealRecipeViewModel) {
+        navigationViewControllerDelegate?.openRecipeVC(with: viewModel)
     }
     
 }

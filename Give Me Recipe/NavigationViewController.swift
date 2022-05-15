@@ -9,6 +9,8 @@ import UIKit
 
 protocol NavigationViewControllerDelegate {
     func pushViewController(_ viewController: UIViewController, animated: Bool)
+    
+    func openRecipeVC(with recipe: MealRecipeViewModel)
 }
 
 class NavigationViewController: UINavigationController, NavigationViewControllerDelegate {
@@ -28,9 +30,10 @@ class NavigationViewController: UINavigationController, NavigationViewController
         pushViewController(viewController, animated: true)
     }
     
-    func openRecipeVC() {
-        let recipeVC = RecipeViewController()
+    func openRecipeVC(with recipe: MealRecipeViewModel) {
+        let recipeVC = RecipeViewController(recipeViewModel: recipe, nibName: nil, bundle: nil)
         recipeVC.navigationViewControllerDelegate = self
+        recipeVC.title = "\(recipe.name)"
         
         pushViewController(recipeVC, animated: true)
     }
