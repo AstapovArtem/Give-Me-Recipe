@@ -9,13 +9,15 @@
 import UIKit
 
 protocol RecipeRoutingLogic {
-
+    var navigationViewControllerDelegate: NavigationViewControllerDelegate? { set get }
 }
 
 class RecipeRouter: NSObject, RecipeRoutingLogic {
-
-  weak var viewController: RecipeViewController?
-  
-  // MARK: Routing
-  
+    
+    var navigationViewControllerDelegate: NavigationViewControllerDelegate?
+    
+    weak var viewController: RecipeViewController?
+    
+    // MARK: Routing
+    
 }

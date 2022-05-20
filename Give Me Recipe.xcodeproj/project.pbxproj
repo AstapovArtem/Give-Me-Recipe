@@ -25,8 +25,9 @@
 		E36FC13228282CEF002B0416 /* RecipeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12B28282CEF002B0416 /* RecipeWorker.swift */; };
 		E36FC13328282CEF002B0416 /* RecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12C28282CEF002B0416 /* RecipeRouter.swift */; };
 		E36FC13428282CEF002B0416 /* RecipeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12D28282CEF002B0416 /* RecipeModels.swift */; };
-		E36FC13528282CEF002B0416 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12E28282CEF002B0416 /* RecipeViewController.swift */; };
 		E36FC13628282CEF002B0416 /* RecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */; };
+		E374C09B2836D9A2003FB5B5 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374C0992836D9A2003FB5B5 /* RecipeViewController.swift */; };
+		E374C09C2836D9A2003FB5B5 /* RecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E374C09A2836D9A2003FB5B5 /* RecipeViewController.xib */; };
 		E3A7AED02826CB8600387185 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AEC92826CB8600387185 /* MainScreenPresenter.swift */; };
 		E3A7AED12826CB8600387185 /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECA2826CB8600387185 /* MainScreenWorker.swift */; };
 		E3A7AED22826CB8600387185 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECB2826CB8600387185 /* MainScreenRouter.swift */; };
@@ -35,7 +36,6 @@
 		E3A7AED52826CB8600387185 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */; };
 		E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */; };
 		E3B747C2282EE7190022B27D /* MealRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B747C1282EE7190022B27D /* MealRecipeViewModel.swift */; };
-		E3B9FC39283057440054C459 /* RecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B9FC38283057440054C459 /* RecipeViewController.xib */; };
 		E3E2EEB8282AFD10009FDB97 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2EEB7282AFD10009FDB97 /* SearchResponse.swift */; };
 		E3F745B1282D98F200377A3A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F745B0282D98F200377A3A /* NetworkService.swift */; };
 		E3F745B5282D9D3C00377A3A /* MealURLRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F745B4282D9D3C00377A3A /* MealURLRequests.swift */; };
@@ -85,8 +85,9 @@
 		E36FC12B28282CEF002B0416 /* RecipeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeWorker.swift; sourceTree = "<group>"; };
 		E36FC12C28282CEF002B0416 /* RecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRouter.swift; sourceTree = "<group>"; };
 		E36FC12D28282CEF002B0416 /* RecipeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModels.swift; sourceTree = "<group>"; };
-		E36FC12E28282CEF002B0416 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInteractor.swift; sourceTree = "<group>"; };
+		E374C0992836D9A2003FB5B5 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		E374C09A2836D9A2003FB5B5 /* RecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewController.xib; sourceTree = "<group>"; };
 		E3A7AEC92826CB8600387185 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		E3A7AECA2826CB8600387185 /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
 		E3A7AECB2826CB8600387185 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
 		E3B747C1282EE7190022B27D /* MealRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeViewModel.swift; sourceTree = "<group>"; };
-		E3B9FC38283057440054C459 /* RecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewController.xib; sourceTree = "<group>"; };
 		E3E2EEB7282AFD10009FDB97 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		E3F745B0282D98F200377A3A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E3F745B4282D9D3C00377A3A /* MealURLRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealURLRequests.swift; sourceTree = "<group>"; };
@@ -222,11 +222,11 @@
 		E36FC12928282CB6002B0416 /* RecipeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E3B9FC38283057440054C459 /* RecipeViewController.xib */,
-				E36FC12E28282CEF002B0416 /* RecipeViewController.swift */,
+				E374C09A2836D9A2003FB5B5 /* RecipeViewController.xib */,
+				E374C0992836D9A2003FB5B5 /* RecipeViewController.swift */,
 				E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */,
-				E36FC12B28282CEF002B0416 /* RecipeWorker.swift */,
 				E36FC12A28282CEF002B0416 /* RecipePresenter.swift */,
+				E36FC12B28282CEF002B0416 /* RecipeWorker.swift */,
 				E36FC12C28282CEF002B0416 /* RecipeRouter.swift */,
 				E36FC12D28282CEF002B0416 /* RecipeModels.swift */,
 			);
@@ -377,7 +377,7 @@
 			files = (
 				E32D4EA22826BF1D00E4F6F3 /* LaunchScreen.storyboard in Resources */,
 				E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */,
-				E3B9FC39283057440054C459 /* RecipeViewController.xib in Resources */,
+				E374C09C2836D9A2003FB5B5 /* RecipeViewController.xib in Resources */,
 				E32D4E9F2826BF1D00E4F6F3 /* Assets.xcassets in Resources */,
 				E32D4E9D2826BF1C00E4F6F3 /* Main.storyboard in Resources */,
 			);
@@ -511,7 +511,7 @@
 				E3B747C2282EE7190022B27D /* MealRecipeViewModel.swift in Sources */,
 				E36FC13628282CEF002B0416 /* RecipeInteractor.swift in Sources */,
 				E3A7AED12826CB8600387185 /* MainScreenWorker.swift in Sources */,
-				E36FC13528282CEF002B0416 /* RecipeViewController.swift in Sources */,
+				E374C09B2836D9A2003FB5B5 /* RecipeViewController.swift in Sources */,
 				E3F745B1282D98F200377A3A /* NetworkService.swift in Sources */,
 				E3A7AED32826CB8600387185 /* MainScreenModels.swift in Sources */,
 				E36FC13228282CEF002B0416 /* RecipeWorker.swift in Sources */,
