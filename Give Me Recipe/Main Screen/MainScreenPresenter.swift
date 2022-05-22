@@ -71,9 +71,7 @@ class MainScreenPresenter: MainScreenPresentationLogic {
                                    measure16: response.strMeasure16,
                                    measure17: response.strMeasure17,
                                    measure18: response.strMeasure18,
-                                   measure19: response.strMeasure19,
-                                   measure20: response.strMeasure20,
-                                   source: response.strSource)
+                                   measure19: response.strMeasure19)
     }
     
 }

@@ -19,6 +19,8 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     var recipeViewModel: MealRecipeViewModel!
     
+    // MARK: UI Elements
+    
     private lazy var scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -28,16 +30,88 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return scrollView
     }()
     
-    private var label: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Str"
-        return label
-    }()
-    
-    private var contentSize: CGSize {
+    private var contentSize: CGSize { // Нужно будет сделать подсчет размера экрана в зависимости от размещаемого контента
         CGSize(width: view.frame.width, height: view.frame.height + 1000)
     }
+    
+    private var mealNameLabel: UILabel = {
+       let nameLabel = UILabel()
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        nameLabel.numberOfLines = 3
+        nameLabel.backgroundColor = .green
+        nameLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+        return nameLabel
+    }()
+    
+    private var mealImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = CGFloat(imageView.frame.height / 2)
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .red
+        imageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        return imageView
+    }()
+    
+    private var typeMealLabel: UILabel = {
+       let typeLabel = UILabel()
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
+        typeLabel.font = UIFont.systemFont(ofSize: 20)
+        typeLabel.numberOfLines = 1
+        typeLabel.text = "Type label"
+        return typeLabel
+    }()
+    
+    private var typeMealImageView: UIImageView = {
+       let typeImage = UIImageView()
+        typeImage.translatesAutoresizingMaskIntoConstraints = false
+        typeImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        typeImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        typeImage.image = UIImage(named: "foodType")
+        return typeImage
+    }()
+    
+    private var typeMealStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+//        stackView.alignment = .center
+        stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        stackView.backgroundColor = .orange
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    private var countryMealLabel: UILabel = {
+       let typeLabel = UILabel()
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
+        typeLabel.font = UIFont.systemFont(ofSize: 20)
+        typeLabel.numberOfLines = 1
+        typeLabel.text = "Country label"
+        return typeLabel
+    }()
+    
+    private var countryMealImageView: UIImageView = {
+       let typeImage = UIImageView()
+        typeImage.translatesAutoresizingMaskIntoConstraints = false
+        typeImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        typeImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        typeImage.image = UIImage(named: "country")
+        return typeImage
+    }()
+    
+    private var countryMealStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        stackView.backgroundColor = .purple
+        return stackView
+    }()
     
     // MARK: Object lifecycle
     
@@ -80,18 +154,68 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(scrollView)
-        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
-        
-        scrollView.backgroundColor = .orange
-        scrollView.addSubview(label)
-        label.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+        setupScrollView()
+        setupLabels()
+        setupMealImage()
+        setupGeneralInfoLabels()
+//        print(recipeViewModel.id)
+//        print(recipeViewModel.ingredients.count)
+//        print(recipeViewModel.measures.count)
     }
     
     func displayData(viewModel: Recipe.Model.ViewModel.ViewModelData) {
         
     }
+    
+    // MARK: Setup UI elements
+    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+    }
+    
+    private func setupLabels() {
+        scrollView.addSubview(mealNameLabel)
+        mealNameLabel.text = recipeViewModel.name
+        mealNameLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        mealNameLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        mealNameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        
+    }
+    
+    private func setupMealImage() {
+        scrollView.addSubview(mealImage)
+        mealImage.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: 5).isActive = true
+        mealImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 150).isActive = true
+    }
+    
+    private func setupGeneralInfoLabels() {
+        scrollView.addSubview(typeMealStackView)
+        
+//        typeMealStackView.centerYAnchor.constraint(equalTo: mealImage.centerYAnchor, constant: -20).isActive = true
+        typeMealStackView.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: 100).isActive = true
+        typeMealStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
+        typeMealStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.45).isActive = true
+        
+        typeMealStackView.addArrangedSubview(typeMealImageView)
+        typeMealImageView.centerYAnchor.constraint(equalTo: typeMealStackView.centerYAnchor).isActive = true
+        typeMealImageView.leadingAnchor.constraint(equalTo: typeMealStackView.leadingAnchor, constant: 5).isActive = true
+
+        typeMealStackView.addArrangedSubview(typeMealLabel)
+        typeMealLabel.centerYAnchor.constraint(equalTo: typeMealImageView.centerYAnchor).isActive = true
+        typeMealLabel.leadingAnchor.constraint(equalTo: typeMealImageView.trailingAnchor, constant: 5).isActive = true
+        
+        scrollView.addSubview(countryMealStackView)
+        countryMealStackView.topAnchor.constraint(equalTo: typeMealStackView.bottomAnchor, constant: 20).isActive = true
+        countryMealStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
+        countryMealStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.45).isActive = true
+        
+        countryMealStackView.addArrangedSubview(countryMealImageView)
+        
+        countryMealStackView.addArrangedSubview(countryMealLabel)
+    }
+    
+    // MARK: Set NavigationViewControllerDelegate
     
     func setNavigationControllerDelegate(with delegate: NavigationViewControllerDelegate) {
         router?.navigationViewControllerDelegate = delegate

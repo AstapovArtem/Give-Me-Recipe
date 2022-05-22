@@ -17,11 +17,12 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     var interactor: MainScreenBusinessLogic?
     var router: (NSObjectProtocol & MainScreenRoutingLogic)?
     
+    // MARK: UI Elements
+    
     var textLabel: UILabel = {
         let label = UILabel()
         label.text = "Recipe for any cases"
         label.textColor = .white
-        label.font = UIFont(name: "Kefa", size: 28)
         label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
