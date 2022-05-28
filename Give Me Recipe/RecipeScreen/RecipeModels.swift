@@ -13,17 +13,17 @@ enum Recipe {
   enum Model {
     struct Request {
       enum RequestType {
-          case fetchImage(urlString: String)
+          case getDataMealImage(urlString: String)
       }
     }
     struct Response {
       enum ResponseType {
-        case some
+          case presentMealImage(data: Data)
       }
     }
     struct ViewModel {
       enum ViewModelData {
-        case some
+          case displayMealImage(image: Data)
       }
     }
   }
@@ -80,7 +80,7 @@ struct MealRecipeViewModel {
     var measure20: String?
     var source: String?
     
-    var ingredients: [String?] {
+    private var ingredients: [String?] {
         var ingredients = [String?]()
         ingredients.append(ingredient1)
         ingredients.append(ingredient2)
@@ -109,7 +109,7 @@ struct MealRecipeViewModel {
         return result
     }
     
-    var measures: [String?] {
+    private var measures: [String?] {
         var ingredients = [String?]()
         ingredients.append(measure1)
         ingredients.append(measure2)
@@ -137,4 +137,25 @@ struct MealRecipeViewModel {
         }
         return result
     }
+    
+    var ingredientString: [NSMutableAttributedString] {
+        var result: [NSMutableAttributedString] = []
+        
+        for (measure, ingredient) in zip(measures, ingredients) {
+            guard let measureString = measure,
+                  measureString != "",
+                  measureString != " ",
+                  let ingredientString = ingredient,
+                  ingredientString != "",
+                  ingredientString != " "
+            else { break }
+            
+            let attributedString = NSMutableAttributedString(string: "\(measureString) \(ingredientString)")
+            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: NSRange(location: 0, length: measureString.count))
+            attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: measureString.count + 1, length: ingredientString.count))
+            result.append(attributedString)
+        }
+        return result
+    }
+    
 }

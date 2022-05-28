@@ -7,20 +7,33 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol RecipeBusinessLogic {
-  func makeRequest(request: Recipe.Model.Request.RequestType)
+    func makeRequest(request: Recipe.Model.Request.RequestType)
 }
 
 class RecipeInteractor: RecipeBusinessLogic {
-
-  var presenter: RecipePresentationLogic?
-  var service: RecipeService?
-  
-  func makeRequest(request: Recipe.Model.Request.RequestType) {
-    if service == nil {
-      service = RecipeService()
+    
+    var presenter: RecipePresentationLogic?
+    var service: RecipeService?
+    var networkService = NetworkService()
+    
+    func makeRequest(request: Recipe.Model.Request.RequestType) {
+        if service == nil {
+            service = RecipeService()
+        }
+        
+        switch request {
+        case .getDataMealImage(urlString: let urlString):
+            networkService.fetchImage(from: urlString) { [weak self] data in
+                guard let data = data else {
+                    return
+                }
+                
+                self?.presenter?.presentData(response: .presentMealImage(data: data))
+            }
+        }
     }
-  }
-  
+    
 }

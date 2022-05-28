@@ -9,14 +9,20 @@
 import UIKit
 
 protocol RecipePresentationLogic {
-  func presentData(response: Recipe.Model.Response.ResponseType)
+    func presentData(response: Recipe.Model.Response.ResponseType)
 }
 
 class RecipePresenter: RecipePresentationLogic {
-  weak var viewController: RecipeDisplayLogic?
-  
-  func presentData(response: Recipe.Model.Response.ResponseType) {
-  
-  }
-  
+    weak var viewController: RecipeDisplayLogic?
+    
+    func presentData(response: Recipe.Model.Response.ResponseType) {
+        
+        switch response {
+            
+        case .presentMealImage(data: let data):
+            guard let mealImage = UIImage(data: data) else { return }
+            viewController?.displayData(viewModel: .displayMealImage(image: data))
+        }
+    }
+    
 }

@@ -35,4 +35,19 @@ class NetworkService {
         }
     }
     
+    func fetchImage(from urlString: String, completion: @escaping (Data?) -> Void) {
+        guard let urlRequest = URL(string: urlString) else { return }
+        
+        let address: Alamofire.URLRequestConvertible = URLRequest(url: urlRequest)
+        AF.request(address).response { dataResponse in
+            if let error = dataResponse.error {
+                completion(nil)
+                return
+            }
+            
+            guard let data = dataResponse.data else { return }
+            completion(data)
+        }
+    }
+    
 }

@@ -33,7 +33,6 @@
 		E3A7AED42826CB8600387185 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */; };
 		E3A7AED52826CB8600387185 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */; };
 		E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */; };
-		E3AFD4D6283D5BF90019894E /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFD4D5283D5BF90019894E /* IngredientCell.swift */; };
 		E3E2EEB8282AFD10009FDB97 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2EEB7282AFD10009FDB97 /* SearchResponse.swift */; };
 		E3F745B1282D98F200377A3A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F745B0282D98F200377A3A /* NetworkService.swift */; };
 		E3F745B5282D9D3C00377A3A /* MealURLRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F745B4282D9D3C00377A3A /* MealURLRequests.swift */; };
@@ -93,7 +92,6 @@
 		E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
-		E3AFD4D5283D5BF90019894E /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		E3E2EEB7282AFD10009FDB97 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		E3F745B0282D98F200377A3A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E3F745B4282D9D3C00377A3A /* MealURLRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealURLRequests.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 		E36FC12928282CB6002B0416 /* RecipeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E3AFD4D4283D5BE20019894E /* IngredientCell */,
 				E374C09A2836D9A2003FB5B5 /* RecipeViewController.xib */,
 				E374C0992836D9A2003FB5B5 /* RecipeViewController.swift */,
 				E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */,
@@ -243,14 +240,6 @@
 				E3A7AECC2826CB8600387185 /* MainScreenModels.swift */,
 			);
 			path = "Main Screen";
-			sourceTree = "<group>";
-		};
-		E3AFD4D4283D5BE20019894E /* IngredientCell */ = {
-			isa = PBXGroup;
-			children = (
-				E3AFD4D5283D5BF90019894E /* IngredientCell.swift */,
-			);
-			path = IngredientCell;
 			sourceTree = "<group>";
 		};
 		E3E2EEB6282AFCE2009FDB97 /* Models */ = {
@@ -529,7 +518,6 @@
 				E3A7AED42826CB8600387185 /* MainScreenViewController.swift in Sources */,
 				E3E2EEB8282AFD10009FDB97 /* SearchResponse.swift in Sources */,
 				E32D4E962826BF1C00E4F6F3 /* AppDelegate.swift in Sources */,
-				E3AFD4D6283D5BF90019894E /* IngredientCell.swift in Sources */,
 				E32D4E982826BF1C00E4F6F3 /* SceneDelegate.swift in Sources */,
 				E36FC13128282CEF002B0416 /* RecipePresenter.swift in Sources */,
 				E3A7AED52826CB8600387185 /* MainScreenInteractor.swift in Sources */,
@@ -713,9 +701,9 @@
 				DEVELOPMENT_TEAM = H3ANXAC362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Give Me Recipe/Info.plist";
+				INFOPLIST_KEY_NSMainNibFile = MainScreenViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -743,9 +731,9 @@
 				DEVELOPMENT_TEAM = H3ANXAC362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Give Me Recipe/Info.plist";
+				INFOPLIST_KEY_NSMainNibFile = MainScreenViewController;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
