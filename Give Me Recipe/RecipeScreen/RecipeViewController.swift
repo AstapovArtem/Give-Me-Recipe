@@ -29,20 +29,24 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.frame = view.bounds
         scrollView.contentSize = contentSize
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         return scrollView
     }()
     
-    private var contentSize: CGSize { // Нужно будет сделать подсчет размера экрана в зависимости от размещаемого контента
-        CGSize(width: view.frame.width, height: view.frame.height + 1000)
+    private var contentSize: CGSize { 
+        CGSize(width: view.frame.width,
+               height: RecipeViewHeightCalculated.viewSize(mealName: recipeViewModel.name,
+                                                           mealNameHeight: mealNameLabel.frame.height,
+                                                           instrustionTextHeight: instructionsTextView.frame.height,
+                                                           ingredientsCount: recipeViewModel.ingredientString.count))
     }
     
     private var mealNameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-        nameLabel.numberOfLines = 3
+        nameLabel.font = Constants.fontMealNameLabel
+        nameLabel.numberOfLines = 0
         nameLabel.backgroundColor = .green
-        nameLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
         return nameLabel
     }()
     
@@ -50,8 +54,8 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
-        imageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: Constants.mealImageHeight).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: Constants.mealImageHeight).isActive = true
         imageView.layer.cornerRadius = imageView.frame.height / 2
         imageView.clipsToBounds = true
         return imageView
@@ -60,7 +64,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private var typeMealLabel: UILabel = {
         let typeLabel = UILabel()
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
-        typeLabel.font = UIFont.systemFont(ofSize: 17)
+        typeLabel.font = Constants.fontTexts
         typeLabel.numberOfLines = 1
         typeLabel.text = "Type label"
         return typeLabel
@@ -69,8 +73,8 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private var typeMealImageView: UIImageView = {
         let typeImage = UIImageView()
         typeImage.translatesAutoresizingMaskIntoConstraints = false
-        typeImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        typeImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        typeImage.widthAnchor.constraint(equalToConstant: Constants.generalInfoImagesHeight).isActive = true
+        typeImage.heightAnchor.constraint(equalToConstant: Constants.generalInfoImagesHeight).isActive = true
         typeImage.image = UIImage(named: "foodType")
         let scale: CGFloat = 0.7
         typeImage.transform = CGAffineTransform(scaleX: scale, y: scale)
@@ -81,7 +85,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = Constants.generalLabelsSpacings
         stackView.backgroundColor = .orange
         return stackView
     }()
@@ -89,7 +93,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private var countryMealLabel: UILabel = {
         let typeLabel = UILabel()
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
-        typeLabel.font = UIFont.systemFont(ofSize: 18)
+        typeLabel.font = Constants.fontTexts
         typeLabel.numberOfLines = 1
         typeLabel.text = "Country label"
         return typeLabel
@@ -98,8 +102,8 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private var countryMealImageView: UIImageView = {
         let typeImage = UIImageView()
         typeImage.translatesAutoresizingMaskIntoConstraints = false
-        typeImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        typeImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        typeImage.widthAnchor.constraint(equalToConstant: Constants.generalInfoImagesHeight).isActive = true
+        typeImage.heightAnchor.constraint(equalToConstant: Constants.generalInfoImagesHeight).isActive = true
         typeImage.image = UIImage(named: "country")
         let scale: CGFloat = 0.7
         typeImage.transform = CGAffineTransform(scaleX: scale, y: scale)
@@ -110,7 +114,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = Constants.generalLabelsSpacings
         stackView.backgroundColor = .purple
         return stackView
     }()
@@ -119,7 +123,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Ingredients"
-        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        label.font = Constants.fontSectionLabel
         label.backgroundColor = .green
         return label
     }()
@@ -132,10 +136,9 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     }()
     
     private var ingredientsTableView: UITableView = {
-//        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 350, height: 100))
         let tableView = UITableView()
         tableView.backgroundColor = .systemPink
-        tableView.rowHeight = 50
+        tableView.rowHeight = Constants.ingredientTableViewCellHeight
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -143,8 +146,8 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private var instructionsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Instructions"
-        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        label.text = "Instruction"
+        label.font = Constants.fontSectionLabel
         label.backgroundColor = .green
         return label
     }()
@@ -152,10 +155,9 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private var instructionsTextView: UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "Text for example"
         view.textColor = .black
         view.textAlignment = .left
-        view.font = UIFont.systemFont(ofSize: 18)
+        view.font = Constants.fontTexts
         view.backgroundColor = .orange
         view.isEditable = false
         view.sizeToFit()
@@ -202,7 +204,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         
         ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
-        ingredientsTableView.frame = CGRect(x: 0, y: 0, width: 350, height: 50 * recipeViewModel.ingredientString.count)
+        ingredientsTableView.frame = CGRect(x: 0, y: 0, width: 350, height: Int(Constants.ingredientTableViewCellHeight) * recipeViewModel.ingredientString.count)
     }
     
     // MARK: Routing
@@ -223,6 +225,16 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         setDataForLabels()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        scrollView.contentSize = CGSize(width: view.frame.width,
+                                        height: RecipeViewHeightCalculated.viewSize(mealName: recipeViewModel.name,
+                                                                                    mealNameHeight: mealNameLabel.frame.height,
+                                                                                    instrustionTextHeight: instructionsTextView.frame.height,
+                                                                                    ingredientsCount: recipeViewModel.ingredientString.count))
+    }
+    
     func displayData(viewModel: Recipe.Model.ViewModel.ViewModelData) {
         switch viewModel {
             
@@ -240,21 +252,21 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     private func setupLabels() {
         scrollView.addSubview(mealNameLabel)
-        mealNameLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        mealNameLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.mealNameLabelWidthMultiplier).isActive = true
         mealNameLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
-        mealNameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        mealNameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.mealNameTopAnchor).isActive = true
     }
     
     private func setupMealImage() {
         scrollView.addSubview(mealImage)
-        mealImage.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: -40).isActive = true
+        mealImage.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: Constants.mealImageTopAnchor).isActive = true
         mealImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 150).isActive = true
     }
     
     private func setupGeneralInfoLabels() {
         scrollView.addSubview(typeMealStackView)
         
-        typeMealStackView.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: 60).isActive = true
+        typeMealStackView.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: Constants.typeMealStackViewTopAnchor).isActive = true
         typeMealStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
         typeMealStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.4).isActive = true
         
@@ -262,7 +274,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         typeMealStackView.addArrangedSubview(typeMealLabel)
         
         scrollView.addSubview(countryMealStackView)
-        countryMealStackView.topAnchor.constraint(equalTo: typeMealStackView.bottomAnchor, constant: 20).isActive = true
+        countryMealStackView.topAnchor.constraint(equalTo: typeMealStackView.bottomAnchor, constant: Constants.countryMealStackViewTopAnchor).isActive = true
         countryMealStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
         countryMealStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.4).isActive = true
         
@@ -273,13 +285,13 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private func setupIngredientsUIElements() {
         scrollView.addSubview(ingredientsLabel)
         ingredientsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
-        ingredientsLabel.topAnchor.constraint(equalTo: mealImage.bottomAnchor, constant: -35).isActive = true
+        ingredientsLabel.topAnchor.constraint(equalTo: mealImage.bottomAnchor, constant: Constants.ingredientsLabelTopAnchor).isActive = true
         
         scrollView.addSubview(viewForTableView)
         viewForTableView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.85).isActive = true
         viewForTableView.sizeToFit()
         viewForTableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
-        viewForTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 5).isActive = true
+        viewForTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: Constants.ingredientsTableViewTopAnchor).isActive = true
         
         viewForTableView.addSubview(ingredientsTableView)
         ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
@@ -290,12 +302,12 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     private func setupInstructionsUIElements() {
         scrollView.addSubview(instructionsLabel)
         instructionsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
-        instructionsLabel.topAnchor.constraint(equalTo: ingredientsTableView.bottomAnchor, constant: 20 ).isActive = true
+        instructionsLabel.topAnchor.constraint(equalTo: ingredientsTableView.bottomAnchor, constant: Constants.instructionsLabelTopAnchor).isActive = true
         
         scrollView.addSubview(instructionsTextView)
         instructionsTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
-        instructionsTextView.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: 5).isActive = true
-        instructionsTextView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.85).isActive = true
+        instructionsTextView.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: Constants.instructionsTextViewTopAnchor).isActive = true
+        instructionsTextView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: Constants.instructionTextViewWidthMultiplier).isActive = true
     }
     
     // MARK: Set real data for labels

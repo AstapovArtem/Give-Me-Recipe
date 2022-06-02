@@ -33,6 +33,9 @@
 		E3A7AED42826CB8600387185 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */; };
 		E3A7AED52826CB8600387185 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */; };
 		E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */; };
+		E3B2BEB32843B2BF00235FCA /* RecipeViewHeightCalculated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2BEB22843B2BF00235FCA /* RecipeViewHeightCalculated.swift */; };
+		E3B2BEB62843B49900235FCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2BEB52843B49900235FCA /* Constants.swift */; };
+		E3B2BEB82843BAE700235FCA /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2BEB72843BAE700235FCA /* String + Height.swift */; };
 		E3E2EEB8282AFD10009FDB97 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2EEB7282AFD10009FDB97 /* SearchResponse.swift */; };
 		E3F745B1282D98F200377A3A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F745B0282D98F200377A3A /* NetworkService.swift */; };
 		E3F745B5282D9D3C00377A3A /* MealURLRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F745B4282D9D3C00377A3A /* MealURLRequests.swift */; };
@@ -92,6 +95,9 @@
 		E3A7AECD2826CB8600387185 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		E3A7AECE2826CB8600387185 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		E3A7AECF2826CB8600387185 /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		E3B2BEB22843B2BF00235FCA /* RecipeViewHeightCalculated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewHeightCalculated.swift; sourceTree = "<group>"; };
+		E3B2BEB52843B49900235FCA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E3B2BEB72843BAE700235FCA /* String + Height.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String + Height.swift"; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/Программирование/vk/VkNewsFeed/VkNewsFeed/Helpers/String + Height.swift"; sourceTree = "<group>"; };
 		E3E2EEB7282AFD10009FDB97 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		E3F745B0282D98F200377A3A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E3F745B4282D9D3C00377A3A /* MealURLRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealURLRequests.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				E322E0BD28280AAE0005372C /* Constraints.swift */,
+				E3B2BEB72843BAE700235FCA /* String + Height.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -217,6 +224,7 @@
 		E36FC12928282CB6002B0416 /* RecipeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E3B2BEB42843B48100235FCA /* ViewHeight */,
 				E374C09A2836D9A2003FB5B5 /* RecipeViewController.xib */,
 				E374C0992836D9A2003FB5B5 /* RecipeViewController.swift */,
 				E36FC12F28282CEF002B0416 /* RecipeInteractor.swift */,
@@ -240,6 +248,15 @@
 				E3A7AECC2826CB8600387185 /* MainScreenModels.swift */,
 			);
 			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		E3B2BEB42843B48100235FCA /* ViewHeight */ = {
+			isa = PBXGroup;
+			children = (
+				E3B2BEB22843B2BF00235FCA /* RecipeViewHeightCalculated.swift */,
+				E3B2BEB52843B49900235FCA /* Constants.swift */,
+			);
+			path = ViewHeight;
 			sourceTree = "<group>";
 		};
 		E3E2EEB6282AFCE2009FDB97 /* Models */ = {
@@ -503,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36FC13428282CEF002B0416 /* RecipeModels.swift in Sources */,
+				E3B2BEB82843BAE700235FCA /* String + Height.swift in Sources */,
 				E36FC13628282CEF002B0416 /* RecipeInteractor.swift in Sources */,
 				E3A7AED12826CB8600387185 /* MainScreenWorker.swift in Sources */,
 				E374C09B2836D9A2003FB5B5 /* RecipeViewController.swift in Sources */,
@@ -512,6 +530,8 @@
 				E322E0BE28280AAE0005372C /* Constraints.swift in Sources */,
 				E3A7AED02826CB8600387185 /* MainScreenPresenter.swift in Sources */,
 				E3F745B5282D9D3C00377A3A /* MealURLRequests.swift in Sources */,
+				E3B2BEB32843B2BF00235FCA /* RecipeViewHeightCalculated.swift in Sources */,
+				E3B2BEB62843B49900235FCA /* Constants.swift in Sources */,
 				E340EB902829B1C3005982BE /* NavigationViewController.swift in Sources */,
 				E3A7AED22826CB8600387185 /* MainScreenRouter.swift in Sources */,
 				E36FC13328282CEF002B0416 /* RecipeRouter.swift in Sources */,
