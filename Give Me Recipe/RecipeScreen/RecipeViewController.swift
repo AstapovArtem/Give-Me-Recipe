@@ -28,18 +28,11 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.frame = view.bounds
-        scrollView.contentSize = contentSize
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         return scrollView
     }()
     
-    private var contentSize: CGSize { 
-        CGSize(width: view.frame.width,
-               height: RecipeViewHeightCalculated.viewSize(mealName: recipeViewModel.name,
-                                                           mealNameHeight: mealNameLabel.frame.height,
-                                                           instrustionTextHeight: instructionsTextView.frame.height,
-                                                           ingredientsCount: recipeViewModel.ingredientString.count))
-    }
+    private var contentSize: CGSize!
     
     private var mealNameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -215,24 +208,20 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        
         setupScrollView()
-        setupLabels()
+        setupMealNameLabel()
         setupMealImage()
         setupGeneralInfoLabels()
         setupIngredientsTableView()
         setupIngredientsUIElements()
         setupInstructionsUIElements()
         setDataForLabels()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        scrollView.contentSize = CGSize(width: view.frame.width,
-                                        height: RecipeViewHeightCalculated.viewSize(mealName: recipeViewModel.name,
-                                                                                    mealNameHeight: mealNameLabel.frame.height,
-                                                                                    instrustionTextHeight: instructionsTextView.frame.height,
-                                                                                    ingredientsCount: recipeViewModel.ingredientString.count))
     }
     
     func displayData(viewModel: Recipe.Model.ViewModel.ViewModelData) {
@@ -246,14 +235,23 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     // MARK: Setup UI elements
     
     private func setupScrollView() {
+        let sizeScrollView = CGSize(width: view.frame.width,
+                                    height: RecipeViewHeightCalculated.viewSize(mealName: recipeViewModel.name,
+                                                                                mealNameHeight: mealNameLabel.frame.height,
+                                                                                instrustionTextHeight: instructionsTextView.frame.height,
+                                                                                ingredientsCount: recipeViewModel.ingredientString.count))
+        
+        let sizeFromView = CGSize(width: view.frame.width, height: view.frame.height + navigationController!.navigationBar.frame.height)
+        scrollView.contentSize = view.frame.height > sizeScrollView.height ? sizeFromView : sizeScrollView
+        
         view.addSubview(scrollView)
         scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
     
-    private func setupLabels() {
+    private func setupMealNameLabel() {
         scrollView.addSubview(mealNameLabel)
         mealNameLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.mealNameLabelWidthMultiplier).isActive = true
-        mealNameLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        mealNameLabel.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         mealNameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.mealNameTopAnchor).isActive = true
     }
     
@@ -267,7 +265,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         scrollView.addSubview(typeMealStackView)
         
         typeMealStackView.topAnchor.constraint(equalTo: mealNameLabel.bottomAnchor, constant: Constants.typeMealStackViewTopAnchor).isActive = true
-        typeMealStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        typeMealStackView.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         typeMealStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.4).isActive = true
         
         typeMealStackView.addArrangedSubview(typeMealImageView)
@@ -275,7 +273,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         
         scrollView.addSubview(countryMealStackView)
         countryMealStackView.topAnchor.constraint(equalTo: typeMealStackView.bottomAnchor, constant: Constants.countryMealStackViewTopAnchor).isActive = true
-        countryMealStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        countryMealStackView.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         countryMealStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.4).isActive = true
         
         countryMealStackView.addArrangedSubview(countryMealImageView)
@@ -284,13 +282,13 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     private func setupIngredientsUIElements() {
         scrollView.addSubview(ingredientsLabel)
-        ingredientsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        ingredientsLabel.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         ingredientsLabel.topAnchor.constraint(equalTo: mealImage.bottomAnchor, constant: Constants.ingredientsLabelTopAnchor).isActive = true
         
         scrollView.addSubview(viewForTableView)
         viewForTableView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.85).isActive = true
         viewForTableView.sizeToFit()
-        viewForTableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        viewForTableView.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         viewForTableView.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: Constants.ingredientsTableViewTopAnchor).isActive = true
         
         viewForTableView.addSubview(ingredientsTableView)
@@ -301,11 +299,11 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     private func setupInstructionsUIElements() {
         scrollView.addSubview(instructionsLabel)
-        instructionsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        instructionsLabel.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         instructionsLabel.topAnchor.constraint(equalTo: ingredientsTableView.bottomAnchor, constant: Constants.instructionsLabelTopAnchor).isActive = true
         
         scrollView.addSubview(instructionsTextView)
-        instructionsTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25).isActive = true
+        instructionsTextView.leadingAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: -scrollView.frame.width / 2.25).isActive = true
         instructionsTextView.topAnchor.constraint(equalTo: instructionsLabel.bottomAnchor, constant: Constants.instructionsTextViewTopAnchor).isActive = true
         instructionsTextView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: Constants.instructionTextViewWidthMultiplier).isActive = true
     }

@@ -20,7 +20,6 @@ class RecipePresenter: RecipePresentationLogic {
         switch response {
             
         case .presentMealImage(data: let data):
-            guard let mealImage = UIImage(data: data) else { return }
             viewController?.displayData(viewModel: .displayMealImage(image: data))
         }
     }

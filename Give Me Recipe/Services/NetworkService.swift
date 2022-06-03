@@ -42,6 +42,7 @@ class NetworkService {
         AF.request(address).response { dataResponse in
             if let error = dataResponse.error {
                 completion(nil)
+                print(error.localizedDescription)
                 return
             }
             
