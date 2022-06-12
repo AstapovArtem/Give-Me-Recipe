@@ -10,8 +10,6 @@ import UIKit
 
 struct Constants {
     static let ingredientTableViewCellHeight: CGFloat = 50
-    
-    static let leadingElementsConstraint: CGFloat = 25
  
     static let mealNameTopAnchor: CGFloat = 20
     static let mealNameLabelWidthMultiplier: CGFloat = 0.5

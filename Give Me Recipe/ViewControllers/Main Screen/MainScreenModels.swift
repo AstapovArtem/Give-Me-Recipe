@@ -14,16 +14,19 @@ enum MainScreen {
     struct Request {
       enum RequestType {
         case getRandomRecipe
+        case getFavouriteRecipesScreen
       }
     }
     struct Response {
       enum ResponseType {
           case presentRandomRecipe(response: SearchResponse)
+          case presentFavouritesRecipesScreen
       }
     }
     struct ViewModel {
       enum ViewModelData {
           case displayRandomRecipe(viewModel: MealRecipeViewModel)
+          case displayFavouriteRecipesScreen
       }
     }
   }

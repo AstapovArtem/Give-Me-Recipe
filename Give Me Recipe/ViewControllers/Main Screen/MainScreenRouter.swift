@@ -12,6 +12,7 @@ protocol MainScreenRoutingLogic {
     var navigationViewControllerDelegate: NavigationViewControllerDelegate? { set get }
     
     func openRandomRecipe(from viewModel: MealRecipeViewModel)
+    func openFavouritesRecipes()
 }
 
 class MainScreenRouter: NSObject, MainScreenRoutingLogic {
@@ -25,6 +26,10 @@ class MainScreenRouter: NSObject, MainScreenRoutingLogic {
     
     func openRandomRecipe(from viewModel: MealRecipeViewModel) {
         navigationViewControllerDelegate?.openRecipeVC(with: viewModel)
+    }
+    
+    func openFavouritesRecipes() {
+        navigationViewControllerDelegate?.openFavouriteRecipesVC()
     }
     
 }

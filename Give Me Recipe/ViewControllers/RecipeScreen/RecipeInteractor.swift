@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import CoreData
 
 protocol RecipeBusinessLogic {
     func makeRequest(request: Recipe.Model.Request.RequestType)
@@ -18,6 +19,7 @@ class RecipeInteractor: RecipeBusinessLogic {
     var presenter: RecipePresentationLogic?
     var service: RecipeService?
     var networkService = NetworkService()
+    private let dataManager = DataManager()
     
     func makeRequest(request: Recipe.Model.Request.RequestType) {
         if service == nil {
@@ -33,6 +35,10 @@ class RecipeInteractor: RecipeBusinessLogic {
                 
                 self?.presenter?.presentData(response: .presentMealImage(data: data))
             }
+            
+        case .addFavouriteRecipe(viewModel: let viewModel):
+            let succesReply = dataManager.addRecipeToFavourites(recipe: viewModel)
+            presenter?.presentData(response: .presentReplyFromAddingFavouriteRecipe(reply: succesReply))
         }
     }
     

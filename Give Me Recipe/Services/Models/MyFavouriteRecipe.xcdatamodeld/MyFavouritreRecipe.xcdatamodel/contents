@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MyFavouriteRecipe" representedClassName="MyFavouriteRecipe" syncable="YES" codeGenerationType="class">
+        <attribute name="area" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="ingredient1" optional="YES" attributeType="String"/>
+        <attribute name="ingredient2" optional="YES" attributeType="String"/>
+        <attribute name="ingredient3" optional="YES" attributeType="String"/>
+        <attribute name="ingredient4" optional="YES" attributeType="String"/>
+        <attribute name="ingredient5" optional="YES" attributeType="String"/>
+        <attribute name="ingredient6" optional="YES" attributeType="String"/>
+        <attribute name="ingredient7" optional="YES" attributeType="String"/>
+        <attribute name="ingredient8" optional="YES" attributeType="String"/>
+        <attribute name="ingredient9" optional="YES" attributeType="String"/>
+        <attribute name="ingredient10" optional="YES" attributeType="String"/>
+        <attribute name="ingredient11" optional="YES" attributeType="String"/>
+        <attribute name="ingredient12" optional="YES" attributeType="String"/>
+        <attribute name="ingredient13" optional="YES" attributeType="String"/>
+        <attribute name="ingredient14" optional="YES" attributeType="String"/>
+        <attribute name="ingredient15" optional="YES" attributeType="String"/>
+        <attribute name="ingredient16" optional="YES" attributeType="String"/>
+        <attribute name="ingredient17" optional="YES" attributeType="String"/>
+        <attribute name="ingredient18" optional="YES" attributeType="String"/>
+        <attribute name="ingredient19" optional="YES" attributeType="String"/>
+        <attribute name="ingredient20" optional="YES" attributeType="String"/>
+        <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="measure1" optional="YES" attributeType="String"/>
+        <attribute name="measure2" optional="YES" attributeType="String"/>
+        <attribute name="measure3" optional="YES" attributeType="String"/>
+        <attribute name="measure4" optional="YES" attributeType="String"/>
+        <attribute name="measure5" optional="YES" attributeType="String"/>
+        <attribute name="measure6" optional="YES" attributeType="String"/>
+        <attribute name="measure7" optional="YES" attributeType="String"/>
+        <attribute name="measure8" optional="YES" attributeType="String"/>
+        <attribute name="measure9" optional="YES" attributeType="String"/>
+        <attribute name="measure10" optional="YES" attributeType="String"/>
+        <attribute name="measure11" optional="YES" attributeType="String"/>
+        <attribute name="measure12" optional="YES" attributeType="String"/>
+        <attribute name="measure13" optional="YES" attributeType="String"/>
+        <attribute name="measure14" optional="YES" attributeType="String"/>
+        <attribute name="measure15" optional="YES" attributeType="String"/>
+        <attribute name="measure16" optional="YES" attributeType="String"/>
+        <attribute name="measure17" optional="YES" attributeType="String"/>
+        <attribute name="measure18" optional="YES" attributeType="String"/>
+        <attribute name="measure19" optional="YES" attributeType="String"/>
+        <attribute name="measure20" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="String"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="MyFavouriteRecipe" positionX="-45" positionY="0" width="128" height="734"/>
+    </elements>
+</model>

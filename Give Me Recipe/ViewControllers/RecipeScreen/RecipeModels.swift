@@ -14,16 +14,19 @@ enum Recipe {
     struct Request {
       enum RequestType {
           case getDataMealImage(urlString: String)
+          case addFavouriteRecipe(viewModel: MealRecipeViewModel)
       }
     }
     struct Response {
       enum ResponseType {
           case presentMealImage(data: Data)
+          case presentReplyFromAddingFavouriteRecipe(reply: Bool)
       }
     }
     struct ViewModel {
       enum ViewModelData {
           case displayMealImage(image: Data)
+          case displayResultOfAddingFavouriteRecipe(reply: Bool)
       }
     }
   }

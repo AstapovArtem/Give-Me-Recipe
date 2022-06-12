@@ -19,7 +19,7 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     
     // MARK: UI Elements
     
-    var textLabel: UILabel = {
+    private var textLabel: UILabel = {
         let label = UILabel()
         label.text = "Recipe for any cases"
         label.textColor = .white
@@ -28,9 +28,23 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         return label
     }()
     
-    var findRandomRecipeButton: UIButton = {
+    private var findRandomRecipeButton: UIButton = {
         let button = UIButton()
         button.setTitle("Random recipe", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        button.layer.cornerRadius = 15
+        button.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.6784313725, blue: 0.2823529412, alpha: 1)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.systemGray5.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        return button
+    }()
+    
+    private var favouriteRecipesButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("My favourite recipes", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.layer.cornerRadius = 15
@@ -48,14 +62,11 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
-        setupViewController()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
-        setupViewController()
     }
     
     // MARK: Setup
@@ -78,16 +89,33 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         interactor?.makeRequest(request: .getRandomRecipe)
     }
     
+    @objc private func openFavouriteRecipes() {
+        interactor?.makeRequest(request: .getFavouriteRecipesScreen)
+    }
+    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    override func viewWillLayoutSubviews() {
+        setupViewController()
+        setupRandomRecipeButton()
+        setupFavouriteRecipesButton()
+    }
+    
+    // MARK: Setup elements
+    
     private func setupViewController() {
-        //        let backgroundColor = UIColor(red: 243, green: 239, blue: 255, alpha: 1)
         view.backgroundColor = #colorLiteral(red: 0.9166035056, green: 0.8493602872, blue: 0.8302007318, alpha: 1)
         
+        view.addSubview(textLabel)
+        textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    private func setupRandomRecipeButton() {
         view.addSubview(findRandomRecipeButton)
         findRandomRecipeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         findRandomRecipeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -95,16 +123,25 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         findRandomRecipeButton.layer.shadowOffset = CGSize(width: 2.5, height: 4)
         findRandomRecipeButton.layer.shadowOpacity = 0.4
         findRandomRecipeButton.layer.shadowRadius = 3
-        
-        view.addSubview(textLabel)
-        textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
-        textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    private func setupFavouriteRecipesButton() {
+        view.addSubview(favouriteRecipesButton)
+        favouriteRecipesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        favouriteRecipesButton.topAnchor.constraint(equalTo: findRandomRecipeButton.bottomAnchor, constant: 20).isActive = true
+        favouriteRecipesButton.addTarget(self, action: #selector(openFavouriteRecipes), for: .touchUpInside)
+        favouriteRecipesButton.layer.shadowOffset = CGSize(width: 2.5, height: 4)
+        favouriteRecipesButton.layer.shadowOpacity = 0.4
+        favouriteRecipesButton.layer.shadowRadius = 3
     }
     
     func displayData(viewModel: MainScreen.Model.ViewModel.ViewModelData) {
         switch viewModel {
         case .displayRandomRecipe(let viewModel):
             router?.openRandomRecipe(from: viewModel)
+            
+        case .displayFavouriteRecipesScreen:
+            router?.openFavouritesRecipes()
         }
     }
     

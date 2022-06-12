@@ -32,6 +32,9 @@ class MainScreenInteractor: MainScreenBusinessLogic {
 
                 self!.presenter?.presentData(response: .presentRandomRecipe(response: response))
             }
+            
+        case .getFavouriteRecipesScreen:
+            presenter?.presentData(response: .presentFavouritesRecipesScreen)
         }
     }
     

@@ -208,6 +208,9 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNavigationViewController()
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillLayoutSubviews() {
@@ -224,11 +227,22 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         setDataForLabels()
     }
     
+    // MARK: Display data
+    
     func displayData(viewModel: Recipe.Model.ViewModel.ViewModelData) {
         switch viewModel {
             
         case .displayMealImage(image: let image):
             mealImage.image = UIImage(data: image)
+            
+        case .displayResultOfAddingFavouriteRecipe(reply: let reply):
+            let alertController: UIAlertController
+            if reply {
+                alertController = createAlertController(title: "Success", message: "This recipe has added in your favourites!")
+            } else {
+                alertController = createAlertController(title: "Error", message: "Recipe hasn't added in your favourites. Try add again.")
+            }
+            present(alertController, animated: true)
         }
     }
     
@@ -246,6 +260,11 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         
         view.addSubview(scrollView)
         scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+    }
+    
+    private func setupNavigationViewController() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFavouriteRecipe))
+        
     }
     
     private func setupMealNameLabel() {
@@ -327,6 +346,22 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         router?.navigationViewControllerDelegate = delegate
     }
     
+    // MARK: Announce target functions
+    
+    @objc private func addFavouriteRecipe() {
+        interactor?.makeRequest(request: .addFavouriteRecipe(viewModel: recipeViewModel))
+    }
+    
+    // MARK: Supporting functions
+    
+    private func createAlertController(title: String, message: String) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let buttonAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(buttonAction)
+        
+        return alertController
+    }
 }
 
 

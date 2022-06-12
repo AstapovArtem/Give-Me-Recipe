@@ -11,6 +11,7 @@ protocol NavigationViewControllerDelegate {
     func pushViewController(_ viewController: UIViewController, animated: Bool)
     
     func openRecipeVC(with recipe: MealRecipeViewModel)
+    func openFavouriteRecipesVC()
 }
 
 class NavigationViewController: UINavigationController, NavigationViewControllerDelegate {
@@ -30,16 +31,24 @@ class NavigationViewController: UINavigationController, NavigationViewController
         pushViewController(viewController, animated: true)
     }
     
+    
+    // MARK: - Navigation
+    
     func openRecipeVC(with recipe: MealRecipeViewModel) {
         let recipeVC = RecipeViewController(recipeViewModel: recipe, nibName: nil, bundle: nil)
         recipeVC.setNavigationControllerDelegate(with: self)
-        recipeVC.title = "\(recipe.name)"
+//        recipeVC.title = "\(recipe.name)"
         
         pushViewController(recipeVC, animated: true)
     }
     
-    // MARK: - Navigation
-    
+    func openFavouriteRecipesVC() {
+        let favouriteRecipesVC = FavouriteRecipesViewController(nibName: nil, bundle: nil)
+        favouriteRecipesVC.setNavigationControllerDelegate(with: self)
+        favouriteRecipesVC.title = "My favourite recipes"
+        
+        pushViewController(favouriteRecipesVC, animated: true)
+    }
     
     
 }

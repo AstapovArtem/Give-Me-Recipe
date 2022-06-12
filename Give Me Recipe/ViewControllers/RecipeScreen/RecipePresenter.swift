@@ -21,6 +21,9 @@ class RecipePresenter: RecipePresentationLogic {
             
         case .presentMealImage(data: let data):
             viewController?.displayData(viewModel: .displayMealImage(image: data))
+            
+        case .presentReplyFromAddingFavouriteRecipe(reply: let reply):
+            viewController?.displayData(viewModel: .displayResultOfAddingFavouriteRecipe(reply: reply))
         }
     }
     

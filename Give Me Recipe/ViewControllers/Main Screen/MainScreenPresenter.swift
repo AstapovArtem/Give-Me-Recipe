@@ -22,6 +22,9 @@ class MainScreenPresenter: MainScreenPresentationLogic {
             guard let recipe = response.meals.first as? MealRecipe  else { return }
             let mealRecipeViewModel = recipeViewModel(from: recipe)
             viewController?.displayData(viewModel: .displayRandomRecipe(viewModel: mealRecipeViewModel))
+            
+        case .presentFavouritesRecipesScreen:
+            viewController?.displayData(viewModel: .displayFavouriteRecipesScreen)
         }
     }
     
