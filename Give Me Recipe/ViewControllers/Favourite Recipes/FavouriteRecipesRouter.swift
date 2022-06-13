@@ -10,6 +10,7 @@ import UIKit
 
 protocol FavouriteRecipesRoutingLogic {
     var navigationViewControllerDelegate: NavigationViewControllerDelegate? { set get }
+    func openSelectedRecipe(recipe: MealRecipeViewModel)
 }
 
 protocol FavouriteRecipesDataPassing {
@@ -23,5 +24,9 @@ class FavouriteRecipesRouter: NSObject, FavouriteRecipesRoutingLogic {
   weak var viewController: FavouriteRecipesViewController?
   
   // MARK: Routing
+    
+    func openSelectedRecipe(recipe: MealRecipeViewModel) {
+        navigationViewControllerDelegate?.openRecipeVC(with: recipe)
+    }
   
 }

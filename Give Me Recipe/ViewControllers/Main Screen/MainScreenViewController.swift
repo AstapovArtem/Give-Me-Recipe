@@ -19,6 +19,15 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     
     // MARK: UI Elements
     
+    private var backgroundImage: UIImageView = {
+        var imageView = UIImageView()
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "background")
+        imageView.alpha = 0.35
+        return imageView
+    }()
+    
     private var textLabel: UILabel = {
         let label = UILabel()
         label.text = "Recipe for any cases"
@@ -38,7 +47,8 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemGray5.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return button
     }()
     
@@ -52,7 +62,8 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemGray5.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return button
     }()
     
@@ -103,15 +114,20 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         setupViewController()
         setupRandomRecipeButton()
         setupFavouriteRecipesButton()
+        setupTextLabel()
     }
     
     // MARK: Setup elements
     
     private func setupViewController() {
-        view.backgroundColor = #colorLiteral(red: 0.9166035056, green: 0.8493602872, blue: 0.8302007318, alpha: 1)
-        
+        view.addSubview(backgroundImage)
+        backgroundImage.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        backgroundImage.center = view.center
+    }
+    
+    private func setupTextLabel() {
         view.addSubview(textLabel)
-        textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        textLabel.bottomAnchor.constraint(equalTo: findRandomRecipeButton.topAnchor, constant: -100).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     

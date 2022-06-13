@@ -37,7 +37,6 @@ class NavigationViewController: UINavigationController, NavigationViewController
     func openRecipeVC(with recipe: MealRecipeViewModel) {
         let recipeVC = RecipeViewController(recipeViewModel: recipe, nibName: nil, bundle: nil)
         recipeVC.setNavigationControllerDelegate(with: self)
-//        recipeVC.title = "\(recipe.name)"
         
         pushViewController(recipeVC, animated: true)
     }

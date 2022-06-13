@@ -32,6 +32,9 @@ class FavouriteRecipesInteractor: FavouriteRecipesBusinessLogic {
         case .deleteFavouriteRecipe(id: let id):
             dataManager.deleteRecipeFromFavourites(id: id)
             presenter?.presentData(response: .presentDeletionFavouriteRecipe)
+            
+        case .openSelectedRecipe(recipe: let recipe):
+            presenter?.presentData(response: .presentSelectedRecipe(recipe: recipe))
         }
     }
 }

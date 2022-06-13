@@ -33,8 +33,8 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
     private var emptyRecipesImage: UIImageView = {
        let imageView = UIImageView(image: UIImage(named: "emptyRecipes"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         return imageView
     }()
     
@@ -43,7 +43,7 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Favourite recipes are empty!"
         label.textAlignment = .center
-        label.font = Constants.fontSectionLabel
+        label.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
         label.numberOfLines = 0
         return label
     }()
@@ -126,6 +126,9 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
             
         case .displaySuccessDeletionFavouriteRecipe:
             interactor?.makeRequest(request: .fetchMyFavouriteRecipes)
+            
+        case .displaySelectedRecipe(recipe: let recipe):
+            router?.openSelectedRecipe(recipe: recipe)
         }
     }
     
@@ -191,6 +194,12 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
         if editingStyle == .delete {
             print("delete")
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = favouriteRecipes[indexPath.row]
+        
+        interactor?.makeRequest(request: .openSelectedRecipe(recipe: selectedRecipe))
     }
     
     // MARK: Set NavigationViewControllerDelegate

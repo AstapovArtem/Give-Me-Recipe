@@ -25,6 +25,9 @@ class FavouriteRecipesPresenter: FavouriteRecipesPresentationLogic {
             
         case .presentDeletionFavouriteRecipe:
             viewController?.displayData(viewModel: .displaySuccessDeletionFavouriteRecipe)
+            
+        case .presentSelectedRecipe(recipe: let recipe):
+            viewController?.displayData(viewModel: .displaySelectedRecipe(recipe: recipe))
         }
         
     }

@@ -39,14 +39,12 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = Constants.fontMealNameLabel
         nameLabel.numberOfLines = 0
-        nameLabel.backgroundColor = .green
         return nameLabel
     }()
     
     private var mealImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .red
         imageView.widthAnchor.constraint(equalToConstant: Constants.mealImageHeight).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: Constants.mealImageHeight).isActive = true
         imageView.layer.cornerRadius = imageView.frame.height / 2
@@ -79,7 +77,6 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = Constants.generalLabelsSpacings
-        stackView.backgroundColor = .orange
         return stackView
     }()
     
@@ -108,7 +105,6 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = Constants.generalLabelsSpacings
-        stackView.backgroundColor = .purple
         return stackView
     }()
     
@@ -117,14 +113,13 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Ingredients"
         label.font = Constants.fontSectionLabel
-        label.backgroundColor = .green
         return label
     }()
     
     private var viewForTableView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .orange
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -133,6 +128,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         tableView.backgroundColor = .systemPink
         tableView.rowHeight = Constants.ingredientTableViewCellHeight
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -141,7 +137,6 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Instruction"
         label.font = Constants.fontSectionLabel
-        label.backgroundColor = .green
         return label
     }()
     
@@ -151,7 +146,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         view.textColor = .black
         view.textAlignment = .left
         view.font = Constants.fontTexts
-        view.backgroundColor = .orange
+        view.backgroundColor = .clear
         view.isEditable = false
         view.sizeToFit()
         view.isScrollEnabled = false
@@ -376,6 +371,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        cell.backgroundColor = .clear
         var content = cell.defaultContentConfiguration()
         
         let attributedString = recipeViewModel.ingredientString[indexPath.row]
