@@ -22,6 +22,40 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
     
     private let cellId = "cellId"
     
+    // MARK: UI Elements
+    
+    private var emptyRecipesView: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private var emptyRecipesImage: UIImageView = {
+       let imageView = UIImageView(image: UIImage(named: "emptyRecipes"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        return imageView
+    }()
+    
+    private var emptyRecipesLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Favourite recipes are empty!"
+        label.textAlignment = .center
+        label.font = Constants.fontSectionLabel
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private var emptyElementsStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
+    }()
+    
     // MARK: Object lifecycle
     
     init() {
@@ -73,8 +107,12 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
     }
     
     override func viewWillLayoutSubviews() {
-        setupTableViewElement()
-        //        tableView.reloadData()
+        
+        if favouriteRecipes.count == 0 {
+            setupEmptyRecipesView()
+        } else {
+            setupTableViewElement()
+        }
     }
     
     // MARK: Display data
@@ -100,6 +138,20 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
                          trailing: view.trailingAnchor)
         
         tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+    }
+    
+    private func setupEmptyRecipesView() {
+        view.addSubview(emptyRecipesView)
+        emptyRecipesView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width, height: view.frame.height))
+        
+        emptyRecipesView.addSubview(emptyRecipesImage)
+        emptyRecipesImage.centerXAnchor.constraint(equalTo: emptyRecipesView.centerXAnchor).isActive = true
+        emptyRecipesImage.topAnchor.constraint(equalTo: emptyRecipesView.topAnchor, constant: 150).isActive = true
+        
+        emptyRecipesView.addSubview(emptyRecipesLabel)
+        emptyRecipesLabel.centerXAnchor.constraint(equalTo: emptyRecipesView.centerXAnchor).isActive = true
+        emptyRecipesLabel.topAnchor.constraint(equalTo: emptyRecipesImage.bottomAnchor, constant: 20).isActive = true
+        emptyRecipesLabel.widthAnchor.constraint(equalTo: emptyRecipesView.widthAnchor, multiplier: 0.7).isActive = true
     }
     
     // MARK: Table view delegate and data source
