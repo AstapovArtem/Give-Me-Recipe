@@ -115,6 +115,10 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        interactor?.makeRequest(request: .fetchMyFavouriteRecipes)
+    }
+    
     // MARK: Display data
     
     func displayData(viewModel: FavouriteRecipes.Model.ViewModel.ViewModelData) {
@@ -156,7 +160,7 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
         emptyRecipesLabel.topAnchor.constraint(equalTo: emptyRecipesImage.bottomAnchor, constant: 20).isActive = true
         emptyRecipesLabel.widthAnchor.constraint(equalTo: emptyRecipesView.widthAnchor, multiplier: 0.7).isActive = true
     }
-    
+        
     // MARK: Table view delegate and data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -173,16 +177,8 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
         
         let recipe = favouriteRecipes[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        if let pictureURL = recipe.picture {
-            let mealImage = NetworkService().fetchImage(from: pictureURL) { data in
-                guard let data = data else { return }
-                content.image = UIImage(data: data)
-                print("Image")
-            }
-        }
-        content.text = favouriteRecipes[indexPath.row].name
+        content.text = recipe.name
         cell.contentConfiguration = content
-        print("Return")
         return cell
     }
     
@@ -192,7 +188,8 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete")
+            let deleteRecipe = favouriteRecipes[indexPath.row]
+            interactor?.makeRequest(request: .deleteFavouriteRecipe(id: deleteRecipe.id))
         }
     }
     

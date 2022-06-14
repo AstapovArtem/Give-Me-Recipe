@@ -39,6 +39,14 @@ class RecipeInteractor: RecipeBusinessLogic {
         case .addFavouriteRecipe(viewModel: let viewModel):
             let succesReply = dataManager.addRecipeToFavourites(recipe: viewModel)
             presenter?.presentData(response: .presentReplyFromAddingFavouriteRecipe(reply: succesReply))
+            
+        case .checkIsRecipeFavourite(id: let id):
+            let isFavourite = dataManager.checkIsRecipeFavourite(id: id)
+            presenter?.presentData(response: .presentIsRecipeFavourite(isFavourite: isFavourite))
+            
+        case .deleteFavouriteRecipe(id: let id):
+            dataManager.deleteRecipeFromFavourites(id: id)
+            presenter?.presentData(response: .presentDeletionFavouriteRecipe)
         }
     }
     

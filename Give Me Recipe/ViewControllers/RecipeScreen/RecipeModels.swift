@@ -15,18 +15,24 @@ enum Recipe {
       enum RequestType {
           case getDataMealImage(urlString: String)
           case addFavouriteRecipe(viewModel: MealRecipeViewModel)
+          case checkIsRecipeFavourite(id: String)
+          case deleteFavouriteRecipe(id: String)
       }
     }
     struct Response {
       enum ResponseType {
           case presentMealImage(data: Data)
           case presentReplyFromAddingFavouriteRecipe(reply: Bool)
+          case presentIsRecipeFavourite(isFavourite: Bool)
+          case presentDeletionFavouriteRecipe
       }
     }
     struct ViewModel {
       enum ViewModelData {
           case displayMealImage(image: Data)
           case displayResultOfAddingFavouriteRecipe(reply: Bool)
+          case displayIsRecipeFavourite(isFavourite: Bool)
+          case displaySuccessDeletionFavouriteRecipe
       }
     }
   }

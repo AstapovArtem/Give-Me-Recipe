@@ -17,7 +17,8 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     var interactor: RecipeBusinessLogic?
     var router: (NSObjectProtocol & RecipeRoutingLogic)?
     
-    var recipeViewModel: MealRecipeViewModel!
+    private var recipeViewModel: MealRecipeViewModel!
+    private var isRecipeFavourite: Bool = false
     
     private let cellId = "cellId"
     
@@ -159,6 +160,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         self.recipeViewModel = recipeViewModel
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
+        checkIsRecipeFavourite()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -237,7 +239,16 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
             } else {
                 alertController = createAlertController(title: "Error", message: "Recipe hasn't added in your favourites. Try add again.")
             }
+            isRecipeFavourite = true
+            setupNavigationViewController()
             present(alertController, animated: true)
+            
+        case .displayIsRecipeFavourite(isFavourite: let isFavourite):
+            isRecipeFavourite = isFavourite
+            
+        case .displaySuccessDeletionFavouriteRecipe:
+            isRecipeFavourite = false
+            setupNavigationViewController()
         }
     }
     
@@ -258,8 +269,12 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     }
     
     private func setupNavigationViewController() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFavouriteRecipe))
-        
+        if isRecipeFavourite {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(removeFavouriteRecipe))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(addFavouriteRecipe))
+        }
+        view.reloadInputViews()
     }
     
     private func setupMealNameLabel() {
@@ -347,6 +362,10 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         interactor?.makeRequest(request: .addFavouriteRecipe(viewModel: recipeViewModel))
     }
     
+    @objc private func removeFavouriteRecipe() {
+        interactor?.makeRequest(request: .deleteFavouriteRecipe(id: recipeViewModel.id))
+    }
+    
     // MARK: Supporting functions
     
     private func createAlertController(title: String, message: String) -> UIAlertController {
@@ -356,6 +375,10 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         alertController.addAction(buttonAction)
         
         return alertController
+    }
+    
+    private func checkIsRecipeFavourite() {
+        interactor?.makeRequest(request: .checkIsRecipeFavourite(id: recipeViewModel.id))
     }
 }
 

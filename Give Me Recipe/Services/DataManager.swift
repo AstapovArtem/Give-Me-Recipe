@@ -96,6 +96,45 @@ class DataManager {
     
     func deleteRecipeFromFavourites(id: String) {
         let context = getContext()
+        let fetchRequest: NSFetchRequest<MyFavouriteRecipe> = MyFavouriteRecipe.fetchRequest()
+        let predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = predicate
         
+        var deleteRecipes = [MyFavouriteRecipe]()
+        do {
+            deleteRecipes = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        for recipe in deleteRecipes {
+            context.delete(recipe)
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func checkIsRecipeFavourite(id: String) -> Bool {
+        let context = getContext()
+        let fetchRequest: NSFetchRequest<MyFavouriteRecipe> = MyFavouriteRecipe.fetchRequest()
+        let predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = predicate
+        
+        var matchedRecipe: [MyFavouriteRecipe] = []
+        do {
+            matchedRecipe = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        for recipe in matchedRecipe {
+            if recipe.id == id {
+                return true
+            }
+        }
+        return false
     }
 }

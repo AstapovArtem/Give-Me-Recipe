@@ -13,7 +13,7 @@ class RecipeViewCotrollerTests: XCTestCase {
     var sut: RecipeViewController!
 
     override func setUpWithError() throws {
-        super.setUpWithError()
+        
     }
 
     override func tearDownWithError() throws {
