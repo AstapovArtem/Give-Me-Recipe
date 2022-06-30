@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.5.0)
+  - Kingfisher (7.2.4)
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher (~> 7.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Kingfisher: 2457be2121734e69e54a2312ecc0150eb9ae70b3
 
-PODFILE CHECKSUM: b9d83fb8ad35b06c1db7c9a6ff627fc68c328bcc
+PODFILE CHECKSUM: 4aab53314268641323255ebef135038fb2a53bb5
 
 COCOAPODS: 1.11.3

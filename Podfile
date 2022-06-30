@@ -17,5 +17,6 @@ target 'Give Me Recipe' do
   end
 
 pod 'Alamofire'
+pod 'Kingfisher', '~> 7.0'
 
 end

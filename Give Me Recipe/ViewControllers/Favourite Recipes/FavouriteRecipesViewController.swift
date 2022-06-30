@@ -89,7 +89,9 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
     private func setupTableViewDelegateAndDataSource() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        let nib = UINib(nibName: "Cell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: MealCell.reuseId)
     }
     
     // MARK: Routing
@@ -172,13 +174,16 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        guard let cell = cell else { return UITableViewCell() }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MealCell.reuseId, for: indexPath) as! MealCell
         let recipe = favouriteRecipes[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = recipe.name
-        cell.contentConfiguration = content
+        
+        let mealVM = MealCellViewModel(pictureUrlString: recipe.picture ?? "",
+                                       mealName: recipe.name,
+                                       type: recipe.category,
+                                       area: recipe.area)
+        
+        cell.setCell(viewModel: mealVM)
+
         return cell
     }
     
@@ -197,6 +202,10 @@ class FavouriteRecipesViewController: UITableViewController, FavouriteRecipesDis
         let selectedRecipe = favouriteRecipes[indexPath.row]
         
         interactor?.makeRequest(request: .openSelectedRecipe(recipe: selectedRecipe))
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88
     }
     
     // MARK: Set NavigationViewControllerDelegate
