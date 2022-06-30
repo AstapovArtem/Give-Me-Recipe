@@ -9,5 +9,5 @@
 import UIKit
 
 class MainScreenService {
-
+  var test = 2
 }
