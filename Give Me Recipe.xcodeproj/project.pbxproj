@@ -15,6 +15,7 @@
 		E31D4ABB284FE4DF00D827DF /* FavouriteRecipesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D4AB4284FE4DF00D827DF /* FavouriteRecipesModels.swift */; };
 		E31D4ABC284FE4DF00D827DF /* FavouriteRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D4AB5284FE4DF00D827DF /* FavouriteRecipesViewController.swift */; };
 		E31D4ABD284FE4DF00D827DF /* FavouriteRecipesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31D4AB6284FE4DF00D827DF /* FavouriteRecipesInteractor.swift */; };
+		E31F461728835A450033BDC2 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31F461628835A450033BDC2 /* Cell.xib */; };
 		E322E0BE28280AAE0005372C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322E0BD28280AAE0005372C /* Constraints.swift */; };
 		E32D4E962826BF1C00E4F6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4E952826BF1C00E4F6F3 /* AppDelegate.swift */; };
 		E32D4E982826BF1C00E4F6F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D4E972826BF1C00E4F6F3 /* SceneDelegate.swift */; };
@@ -43,7 +44,6 @@
 		E3B2BEB82843BAE700235FCA /* String + Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B2BEB72843BAE700235FCA /* String + Height.swift */; };
 		E3C87AE22852A28600F1E615 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C87AE12852A28600F1E615 /* DataManager.swift */; };
 		E3D33C702856518F00B0983D /* MyFavouriteRecipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3C4DFE12854D32600331537 /* MyFavouriteRecipe.xcdatamodeld */; };
-		E3D84ED6286E35540063C158 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D84ED5286E35540063C158 /* Cell.xib */; };
 		E3D84ED8286E37320063C158 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D84ED7286E37320063C158 /* MealCell.swift */; };
 		E3D84EDA286E38C30063C158 /* MealCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D84ED9286E38C30063C158 /* MealCellViewModel.swift */; };
 		E3D90917284AA53100DAC8DF /* MainScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D90916284AA53100DAC8DF /* MainScreenViewControllerTests.swift */; };
@@ -84,6 +84,7 @@
 		E31D4AB4284FE4DF00D827DF /* FavouriteRecipesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipesModels.swift; sourceTree = "<group>"; };
 		E31D4AB5284FE4DF00D827DF /* FavouriteRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipesViewController.swift; sourceTree = "<group>"; };
 		E31D4AB6284FE4DF00D827DF /* FavouriteRecipesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipesInteractor.swift; sourceTree = "<group>"; };
+		E31F461628835A450033BDC2 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		E322E0BD28280AAE0005372C /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		E32D4E922826BF1C00E4F6F3 /* Give Me Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Give Me Recipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32D4E952826BF1C00E4F6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		E3B2BEB72843BAE700235FCA /* String + Height.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String + Height.swift"; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/Программирование/vk/VkNewsFeed/VkNewsFeed/Helpers/String + Height.swift"; sourceTree = "<group>"; };
 		E3C4DFE22854D32600331537 /* MyFavouritreRecipe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyFavouritreRecipe.xcdatamodel; sourceTree = "<group>"; };
 		E3C87AE12852A28600F1E615 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		E3D84ED5286E35540063C158 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Cell.xib; path = "../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/GiveMeRecipe1/Give Me Recipe/ViewControllers/Favourite Recipes/Cell.xib"; sourceTree = "<group>"; };
 		E3D84ED7286E37320063C158 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		E3D84ED9286E38C30063C158 /* MealCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellViewModel.swift; sourceTree = "<group>"; };
 		E3D90916284AA53100DAC8DF /* MainScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewControllerTests.swift; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 		E3D84ED4286E35430063C158 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E3D84ED5286E35540063C158 /* Cell.xib */,
+				E31F461628835A450033BDC2 /* Cell.xib */,
 				E3D84ED7286E37320063C158 /* MealCell.swift */,
 				E3D84ED9286E38C30063C158 /* MealCellViewModel.swift */,
 			);
@@ -456,8 +456,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E32D4EA22826BF1D00E4F6F3 /* LaunchScreen.storyboard in Resources */,
-				E3D84ED6286E35540063C158 /* Cell.xib in Resources */,
 				E3A7AED62826CB8600387185 /* MainScreenViewController.xib in Resources */,
+				E31F461728835A450033BDC2 /* Cell.xib in Resources */,
 				E374C09C2836D9A2003FB5B5 /* RecipeViewController.xib in Resources */,
 				E32D4E9F2826BF1D00E4F6F3 /* Assets.xcassets in Resources */,
 				E32D4E9D2826BF1C00E4F6F3 /* Main.storyboard in Resources */,
