@@ -19,7 +19,7 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     
     // MARK: UI Elements
     
-    private var backgroundImage: UIImageView = {
+    var backgroundImage: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode =  UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
@@ -28,42 +28,42 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
         return imageView
     }()
     
-    private var textLabel: UILabel = {
+    var textLabel: UILabel = {
         let label = UILabel()
         label.text = "Recipe for any cases"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var findRandomRecipeButton: UIButton = {
+    var findRandomRecipeButton: UIButton = {
         let button = UIButton()
         button.setTitle("Random recipe", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        button.layer.cornerRadius = 15
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .heavy)
+        button.layer.cornerRadius = 28
         button.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.6784313725, blue: 0.2823529412, alpha: 1)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemGray5.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 56).isActive = true
         return button
     }()
     
-    private var favouriteRecipesButton: UIButton = {
+    var favouriteRecipesButton: UIButton = {
         let button = UIButton()
         button.setTitle("My favourite recipes", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        button.layer.cornerRadius = 15
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .heavy)
+        button.layer.cornerRadius = 28
         button.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.6784313725, blue: 0.2823529412, alpha: 1)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemGray5.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 56).isActive = true
         return button
     }()
     
@@ -96,7 +96,7 @@ class MainScreenViewController: UIViewController, MainScreenDisplayLogic {
     
     // MARK: Routing
     
-    @objc private func openRandomRecipe() {
+    @objc func openRandomRecipe() {
         interactor?.makeRequest(request: .getRandomRecipe)
     }
     

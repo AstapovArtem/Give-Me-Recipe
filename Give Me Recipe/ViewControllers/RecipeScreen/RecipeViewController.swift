@@ -24,7 +24,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
     
     // MARK: UI Elements
     
-    private lazy var scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,9 +33,9 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return scrollView
     }()
     
-    private var contentSize: CGSize!
+    var contentSize: CGSize!
     
-    private var mealNameLabel: UILabel = {
+    var mealNameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = Constants.fontMealNameLabel
@@ -43,7 +43,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return nameLabel
     }()
     
-    private var mealImage: UIImageView = {
+    var mealImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: Constants.mealImageHeight).isActive = true
@@ -53,7 +53,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return imageView
     }()
     
-    private var typeMealLabel: UILabel = {
+    var typeMealLabel: UILabel = {
         let typeLabel = UILabel()
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.font = Constants.fontTexts
@@ -62,7 +62,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return typeLabel
     }()
     
-    private var typeMealImageView: UIImageView = {
+    var typeMealImageView: UIImageView = {
         let typeImage = UIImageView()
         typeImage.translatesAutoresizingMaskIntoConstraints = false
         typeImage.widthAnchor.constraint(equalToConstant: Constants.generalInfoImagesHeight).isActive = true
@@ -73,7 +73,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return typeImage
     }()
     
-    private var typeMealStackView: UIStackView = {
+    var typeMealStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -81,7 +81,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return stackView
     }()
     
-    private var countryMealLabel: UILabel = {
+    var countryMealLabel: UILabel = {
         let typeLabel = UILabel()
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.font = Constants.fontTexts
@@ -90,7 +90,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return typeLabel
     }()
     
-    private var countryMealImageView: UIImageView = {
+    var countryMealImageView: UIImageView = {
         let typeImage = UIImageView()
         typeImage.translatesAutoresizingMaskIntoConstraints = false
         typeImage.widthAnchor.constraint(equalToConstant: Constants.generalInfoImagesHeight).isActive = true
@@ -101,7 +101,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return typeImage
     }()
     
-    private var countryMealStackView: UIStackView = {
+    var countryMealStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -109,7 +109,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return stackView
     }()
     
-    private var ingredientsLabel: UILabel = {
+    var ingredientsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Ingredients"
@@ -117,14 +117,14 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return label
     }()
     
-    private var viewForTableView: UIView = {
+    var viewForTableView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
         return view
     }()
     
-    private var ingredientsTableView: UITableView = {
+    var ingredientsTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemPink
         tableView.rowHeight = Constants.ingredientTableViewCellHeight
@@ -133,7 +133,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return tableView
     }()
     
-    private var instructionsLabel: UILabel = {
+    var instructionsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Instruction"
@@ -141,7 +141,7 @@ class RecipeViewController: UIViewController, RecipeDisplayLogic {
         return label
     }()
     
-    private var instructionsTextView: UITextView = {
+    var instructionsTextView: UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textColor = .black
